@@ -1,5 +1,6 @@
 package br.com.rentplus.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,8 +18,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "aluguel")
-public class Aluguel {
+@Table(name = "venda")
+public class Venda {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,17 +28,14 @@ public class Aluguel {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataRetirada;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataEntrega;
-
-	private double valorTotalAluguel;
+	private double valorTotal;
 	private double porcentagemDesconto;
 
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "clienteid")
 	private Cliente cliente;
 
-	@OneToMany(mappedBy = "aluguel", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy = "venda", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	private List<Veiculo> veiculos;
 
 	public long getId() {
@@ -56,20 +54,12 @@ public class Aluguel {
 		this.dataRetirada = dataRetirada;
 	}
 
-	public Date getDataEntrega() {
-		return dataEntrega;
-	}
-
-	public void setDataEntrega(Date dataEntrega) {
-		this.dataEntrega = dataEntrega;
-	}
-
-	public double getValorTotalAluguel() {
-		return valorTotalAluguel;
+	public double getValorTotal() {
+		return valorTotal;
 	}
 
 	public void setValorTotalAluguel(double valorTotalAluguel) {
-		this.valorTotalAluguel = valorTotalAluguel;
+		this.valorTotal = valorTotalAluguel;
 	}
 
 	public double getPorcentagemDesconto() {
@@ -92,10 +82,19 @@ public class Aluguel {
 		return veiculos;
 	}
 
-	public void setVeiculos(List<Veiculo> veiculos) {
+	protected void setVeiculos(List<Veiculo> veiculos) {
 		this.veiculos = veiculos;
 	}
 	
+	public void adicionarVeiculo(Veiculo veiculo) {
+		if(this.getVeiculos() ==null) {
+			this.veiculos = new ArrayList<Veiculo>();
+		}
+		
+		veiculo.setVendido(true);
+		this.veiculos.add(veiculo);
+		
+	}
 	
 
 }

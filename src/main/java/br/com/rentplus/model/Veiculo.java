@@ -23,12 +23,13 @@ public class Veiculo {
 	private String nome;
 	private String cor;
 	private int potencia;
-	private double precoAluguel;
+	private double preco;
 	private String marca;
+	private boolean vendido;
 
 	@ManyToOne
-	@JoinColumn
-	private Aluguel aluguel;
+	@JoinColumn(name = "vendaid")
+	private Venda venda;
 
 	public long getId() {
 		return id;
@@ -70,12 +71,12 @@ public class Veiculo {
 		this.potencia = potencia;
 	}
 
-	public double getPrecoAluguel() {
-		return precoAluguel;
+	public double getPreco() {
+		return preco;
 	}
 
-	public void setPrecoAluguel(double precoAluguel) {
-		this.precoAluguel = precoAluguel;
+	public void setPreco(double preco) {
+		this.preco = preco;
 	}
 
 	public String getMarca() {
@@ -86,12 +87,24 @@ public class Veiculo {
 		this.marca = marca;
 	}
 
-	public Aluguel getAluguel() {
-		return aluguel;
+	public boolean isVendido() {
+		return vendido;
 	}
 
-	public void setAluguel(Aluguel aluguel) {
-		this.aluguel = aluguel;
+	public void setVendido(boolean vendido) {
+		this.vendido = vendido;
 	}
+
+	public Venda getVenda() {
+		return venda;
+	}
+
+	public void setVenda(Venda venda) {
+		this.venda = venda;
+	}
+	
+	
+	
+	
 
 }

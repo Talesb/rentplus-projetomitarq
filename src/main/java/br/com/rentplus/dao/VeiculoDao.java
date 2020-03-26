@@ -4,7 +4,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import br.com.rentplus.connection.Connection;
-import br.com.rentplus.model.Aluguel;
 import br.com.rentplus.model.Veiculo;
 
 public class VeiculoDao {

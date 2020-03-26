@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import br.com.rentplus.dao.AluguelDao;
 import br.com.rentplus.dao.ClienteDao;
 import br.com.rentplus.dao.VeiculoDao;
-import br.com.rentplus.model.Aluguel;
+import br.com.rentplus.dao.VendaDao;
 import br.com.rentplus.model.Carro;
 import br.com.rentplus.model.Cliente;
 import br.com.rentplus.model.Moto;
 import br.com.rentplus.model.Veiculo;
+import br.com.rentplus.model.Venda;
 
 public class Test {
 	public static void main(String[] args) {
@@ -36,19 +36,21 @@ public class Test {
 		m1.setAno(2012);
 		m1.setCor("Azul");
 
-		Aluguel aluguel = new Aluguel();
+		Venda venda = new Venda();
 
-		List<Veiculo> veiculos = new ArrayList();
-		veiculos.add(c1);
-		veiculos.add(m1);
-
-		aluguel.setCliente(cliente);
-		aluguel.setDataEntrega(new Date(2020, 3, 25));
-		aluguel.setDataRetirada(new Date(2020, 3, 22));
-		aluguel.setVeiculos(veiculos);
+		venda.adicionarVeiculo(c1);
+		venda.adicionarVeiculo(m1);
+		
+		venda.setCliente(cliente);
+		venda.setDataRetirada(new Date(2020, 3, 22));
+		
+		c1.setVenda(venda);
+		m1.setVenda(venda);
 
 		ClienteDao.save(cliente);
-		AluguelDao.save(aluguel);
+//		VeiculoDao.save(c1);
+//		VeiculoDao.save(m1);
+		VendaDao.save(venda);
 
 		System.out.println("Conex ok");
 	}
