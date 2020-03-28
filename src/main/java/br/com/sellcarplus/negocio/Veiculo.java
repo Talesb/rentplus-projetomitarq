@@ -1,4 +1,4 @@
-package br.com.rentplus.model;
+package br.com.sellcarplus.negocio;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,8 +10,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.sun.istack.NotNull;
+
 @Entity
-@Table(name = "veiculo")
+@Table(name = "T_veiculo")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Veiculo {
 
@@ -28,6 +30,7 @@ public class Veiculo {
 	private boolean vendido;
 
 	@ManyToOne
+	@NotNull
 	@JoinColumn(name = "vendaid")
 	private Venda venda;
 

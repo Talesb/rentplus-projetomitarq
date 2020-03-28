@@ -1,4 +1,4 @@
-package br.com.rentplus.model;
+package br.com.sellcarplus.negocio;
 
 import java.util.Date;
 
@@ -11,7 +11,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "cliente")
+@Table(name = "T_cliente")
 public class Cliente {
 
 	@Id

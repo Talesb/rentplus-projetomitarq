@@ -1,10 +1,10 @@
-package br.com.rentplus.model;
+package br.com.sellcarplus.negocio;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "caminhao")
+@Table(name = "T_caminhao")
 public class Caminhao extends Veiculo {
 
 	private double tara;

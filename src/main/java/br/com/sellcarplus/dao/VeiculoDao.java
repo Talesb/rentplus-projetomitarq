@@ -1,10 +1,10 @@
-package br.com.rentplus.dao;
+package br.com.sellcarplus.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import br.com.rentplus.connection.Connection;
-import br.com.rentplus.model.Veiculo;
+import br.com.sellcarplus.connection.Connection;
+import br.com.sellcarplus.negocio.Veiculo;
 
 public class VeiculoDao {
 

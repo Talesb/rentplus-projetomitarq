@@ -1,10 +1,10 @@
-package br.com.rentplus.model;
+package br.com.sellcarplus.negocio;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "carro")
+@Table(name = "T_carro")
 public class Carro extends Veiculo {
 
 	private String modelo;

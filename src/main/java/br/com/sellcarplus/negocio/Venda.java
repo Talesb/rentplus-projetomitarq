@@ -1,4 +1,4 @@
-package br.com.rentplus.model;
+package br.com.sellcarplus.negocio;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,7 +18,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "venda")
+@Table(name = "T_venda")
 public class Venda {
 
 	@Id
@@ -58,8 +58,8 @@ public class Venda {
 		return valorTotal;
 	}
 
-	public void setValorTotalAluguel(double valorTotalAluguel) {
-		this.valorTotal = valorTotalAluguel;
+	public void setValorTotal(double valorTotal) {
+		this.valorTotal = valorTotal;
 	}
 
 	public double getPorcentagemDesconto() {
@@ -85,16 +85,15 @@ public class Venda {
 	protected void setVeiculos(List<Veiculo> veiculos) {
 		this.veiculos = veiculos;
 	}
-	
+
 	public void adicionarVeiculo(Veiculo veiculo) {
-		if(this.getVeiculos() ==null) {
+		if (this.getVeiculos() == null) {
 			this.veiculos = new ArrayList<Veiculo>();
 		}
-		
+
 		veiculo.setVendido(true);
 		this.veiculos.add(veiculo);
-		
+
 	}
-	
 
 }

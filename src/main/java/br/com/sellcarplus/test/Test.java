@@ -1,23 +1,20 @@
-package br.com.rentplus.main;
+package br.com.sellcarplus.test;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
-import br.com.rentplus.dao.ClienteDao;
-import br.com.rentplus.dao.VeiculoDao;
-import br.com.rentplus.dao.VendaDao;
-import br.com.rentplus.model.Carro;
-import br.com.rentplus.model.Cliente;
-import br.com.rentplus.model.Moto;
-import br.com.rentplus.model.Veiculo;
-import br.com.rentplus.model.Venda;
+import br.com.sellcarplus.dao.ClienteDao;
+import br.com.sellcarplus.dao.VendaDao;
+import br.com.sellcarplus.negocio.Carro;
+import br.com.sellcarplus.negocio.Cliente;
+import br.com.sellcarplus.negocio.Moto;
+import br.com.sellcarplus.negocio.Venda;
 
 public class Test {
 	public static void main(String[] args) {
 		Cliente cliente = new Cliente();
 		cliente.setCpf("12345678910");
-		cliente.setDataNascimento(new Date(1990, 4, 21));
+		cliente.setDataNascimento(new GregorianCalendar(2000, Calendar.FEBRUARY, 11).getTime());
 		cliente.setNome("Teste");
 
 		Carro c1 = new Carro();
@@ -28,6 +25,7 @@ public class Test {
 		c1.setModelo("Sedan");
 		c1.setQtdAssento(5);
 		c1.setQtdPorta(4);
+		c1.setPreco(50000);
 
 		Moto m1 = new Moto();
 		m1.setNome("R1");
@@ -35,23 +33,22 @@ public class Test {
 		m1.setCilindradas(1000);
 		m1.setAno(2012);
 		m1.setCor("Azul");
+		m1.setPreco(36000);
 
 		Venda venda = new Venda();
 
 		venda.adicionarVeiculo(c1);
 		venda.adicionarVeiculo(m1);
-		
 		venda.setCliente(cliente);
-		venda.setDataRetirada(new Date(2020, 3, 22));
-		
+		venda.setDataRetirada(new GregorianCalendar(2020, Calendar.MARCH, 23).getTime());
+		venda.setValorTotal(c1.getPreco() + m1.getPreco());
+
 		c1.setVenda(venda);
 		m1.setVenda(venda);
 
 		ClienteDao.save(cliente);
-//		VeiculoDao.save(c1);
-//		VeiculoDao.save(m1);
 		VendaDao.save(venda);
 
-		System.out.println("Conex ok");
+		System.out.println("Inclusão feita com sucesso!");
 	}
 }

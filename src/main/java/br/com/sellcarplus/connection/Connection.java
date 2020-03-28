@@ -1,4 +1,4 @@
-package br.com.rentplus.connection;
+package br.com.sellcarplus.connection;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -11,7 +11,7 @@ public class Connection {
 	public static EntityManager getConnection() {
 
 		if (em == null) {
-			EntityManagerFactory factory = Persistence.createEntityManagerFactory("rentplus");
+			EntityManagerFactory factory = Persistence.createEntityManagerFactory("sellcarplus");
 
 			em = factory.createEntityManager();
 		}
