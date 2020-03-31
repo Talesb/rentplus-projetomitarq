@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import br.com.sellcarplus.connection.Connection;
-import br.com.sellcarplus.negocio.Cliente;
+import br.com.sellcarplus.model.negocio.Cliente;
 
 public class ClienteDao {
 

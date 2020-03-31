@@ -1,4 +1,4 @@
-package br.com.sellcarplus.negocio;
+package br.com.sellcarplus.model.negocio;
 
 import java.util.Date;
 
@@ -16,7 +16,7 @@ public class Cliente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 
 	private String nome;
 
@@ -25,13 +25,6 @@ public class Cliente {
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getNome() {
 		return nome;
@@ -55,6 +48,14 @@ public class Cliente {
 
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	 

@@ -1,4 +1,4 @@
-package br.com.sellcarplus.negocio;
+package br.com.sellcarplus.model.negocio;
 
 import java.util.ArrayList;
 import java.util.Date;

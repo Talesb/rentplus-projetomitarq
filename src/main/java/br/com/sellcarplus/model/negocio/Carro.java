@@ -1,4 +1,4 @@
-package br.com.sellcarplus.negocio;
+package br.com.sellcarplus.model.negocio;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

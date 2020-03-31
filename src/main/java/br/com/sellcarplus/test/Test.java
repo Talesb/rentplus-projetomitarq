@@ -3,12 +3,10 @@ package br.com.sellcarplus.test;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import br.com.sellcarplus.dao.ClienteDao;
-import br.com.sellcarplus.dao.VendaDao;
-import br.com.sellcarplus.negocio.Carro;
-import br.com.sellcarplus.negocio.Cliente;
-import br.com.sellcarplus.negocio.Moto;
-import br.com.sellcarplus.negocio.Venda;
+import br.com.sellcarplus.model.negocio.Carro;
+import br.com.sellcarplus.model.negocio.Cliente;
+import br.com.sellcarplus.model.negocio.Moto;
+import br.com.sellcarplus.model.negocio.Venda;
 
 public class Test {
 	public static void main(String[] args) {
@@ -46,8 +44,8 @@ public class Test {
 		c1.setVenda(venda);
 		m1.setVenda(venda);
 
-		ClienteDao.save(cliente);
-		VendaDao.save(venda);
+//		ClienteDao.save(cliente);
+//		VendaDao.save(venda);
 
 		System.out.println("Inclusão feita com sucesso!");
 	}
