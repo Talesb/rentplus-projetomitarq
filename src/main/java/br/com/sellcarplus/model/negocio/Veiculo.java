@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
 @Entity
@@ -29,6 +30,7 @@ public class Veiculo {
 	private String marca;
 	private boolean vendido;
 
+	@JsonIgnore
 	@ManyToOne
 	@NotNull
 	@JoinColumn(name = "vendaid")
@@ -105,9 +107,5 @@ public class Veiculo {
 	public void setVenda(Venda venda) {
 		this.venda = venda;
 	}
-	
-	
-	
-	
 
 }

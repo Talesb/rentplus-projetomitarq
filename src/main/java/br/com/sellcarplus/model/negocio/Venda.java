@@ -17,6 +17,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.com.sellcarplus.model.dto.VendaDTO;
+
 @Entity
 @Table(name = "T_venda")
 public class Venda {
@@ -82,7 +84,7 @@ public class Venda {
 		return veiculos;
 	}
 
-	protected void setVeiculos(List<Veiculo> veiculos) {
+	public void setVeiculos(List<Veiculo> veiculos) {
 		this.veiculos = veiculos;
 	}
 
@@ -94,6 +96,14 @@ public class Venda {
 		veiculo.setVendido(true);
 		this.veiculos.add(veiculo);
 
+	}
+
+	public static Venda fromDTO(VendaDTO dto) {
+		Venda venda = new Venda();
+		venda.setDataRetirada(dto.getDataRetirada());
+		venda.setPorcentagemDesconto(dto.getPorcentagemDesconto());
+		venda.setValorTotal(dto.getValorTotal());
+		return venda;
 	}
 
 }

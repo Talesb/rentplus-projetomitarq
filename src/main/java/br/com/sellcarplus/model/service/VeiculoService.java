@@ -26,8 +26,7 @@ public class VeiculoService {
 		this.veiculoRepository.deleteById(id);
 	}
 
-	public void save(Veiculo Veiculo) {
-		this.veiculoRepository.save(Veiculo);
+	public <T extends Veiculo> void save(T veiculo) {
+		this.veiculoRepository.save(veiculo);
 	}
-
 }
