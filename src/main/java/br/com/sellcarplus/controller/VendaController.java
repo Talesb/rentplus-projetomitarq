@@ -32,7 +32,7 @@ public class VendaController {
 	}
 
 	@DeleteMapping("{id}")
-	public void excluir(int id) {
+	public void excluir(@PathVariable int id) {
 		vendaService.delete(id);
 	}
 

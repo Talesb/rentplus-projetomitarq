@@ -16,7 +16,7 @@ import com.sun.istack.NotNull;
 @Entity
 @Table(name = "T_veiculo")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Veiculo {
+public abstract class Veiculo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

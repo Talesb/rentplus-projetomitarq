@@ -32,7 +32,7 @@ public class ClienteController {
 	}
 
 	@DeleteMapping("{id}")
-	public void excluir(int id) {
+	public void excluir(@PathVariable int id) {
 		clienteService.delete(id);
 	}
 

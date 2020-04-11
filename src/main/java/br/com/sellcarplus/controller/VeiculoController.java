@@ -28,6 +28,22 @@ public class VeiculoController {
 	public List<Veiculo> obterLista() {
 		return veiculoService.findAll();
 	}
+	
+	@RequestMapping("/caminhoes")
+	public List<Veiculo> obterListaCaminhao() {
+		return  veiculoService.findAllCaminhoes();
+	}
+	
+	@RequestMapping("/motos")
+	public List<Veiculo> obterListaMoto() {
+		return veiculoService.findAllMotos();
+	}
+	
+	@RequestMapping("/carros")
+	public List<Veiculo> obterListaCarro() {
+		return veiculoService.findAllCarros();
+	}
+	
 
 	@RequestMapping("{id}")
 	public Veiculo obterPorId(@PathVariable int id) {
@@ -35,7 +51,7 @@ public class VeiculoController {
 	}
 
 	@DeleteMapping("{id}")
-	public void excluir(int id) {
+	public void excluir(@PathVariable int id) {
 		veiculoService.delete(id);
 	}
 
